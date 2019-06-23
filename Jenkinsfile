@@ -26,6 +26,8 @@ stages{
         }
     }
      steps {
+        sh "mvn -v"
+        sh "java -version"
         sh "mvn -B clean install -DskipTests=true"
         }
     }
