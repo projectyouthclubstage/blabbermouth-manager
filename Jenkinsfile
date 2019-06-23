@@ -22,7 +22,7 @@ stages{
     stage('Build'){
     agent {
         docker {
-            image 'arm32v7/maven'
+            image 'arm64v8/maven'
         }
     }
      steps {
@@ -34,7 +34,7 @@ stages{
     stage('Unit Test'){
     agent {
        docker {
-           image 'arm32v7/maven'
+            image 'arm64v8/maven'
           }
     }
      steps {

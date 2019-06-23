@@ -1,4 +1,4 @@
-FROM arm32v7/openjdk:11.0.3-slim-stretch
+FROM arm64v8/openjdk:11.0.3-slim-stretch
 MAINTAINER Sascha Deeg <sascha.deeg@gmail.com>
 USER root
 RUN apt-get update
