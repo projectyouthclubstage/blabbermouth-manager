@@ -1,0 +1,17 @@
+version: "3"
+services:
+  app:
+    environment:
+    - MQTT_HOST=192.168.22.26
+    build:
+      context: .
+      dockerfile: ../Dockerfile
+    image: {image}
+    networks:
+      dev:
+        aliases:
+         - {alias}
+networks:
+  dev:
+    external:
+      name: dev
