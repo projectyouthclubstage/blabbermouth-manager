@@ -72,6 +72,11 @@
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>de.youth-club-stage.backend</groupId>
+			<artifactId>blabbermouth-core</artifactId>
+			<version>1.0.16</version>
+		</dependency>
 	</dependencies>
 
 	<dependencyManagement>
@@ -94,5 +99,13 @@
 			</plugin>
 		</plugins>
 	</build>
+
+	<repositories>
+		<repository>
+			<name>your custom repo</name>
+			<id>deegsolutionrepo</id>
+			<url>https://archiva.youthclubstage.de/repository/youthclubstage/</url>
+		</repository>
+	</repositories>
 
 </project>
