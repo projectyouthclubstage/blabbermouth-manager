@@ -1,7 +1,5 @@
 package de.youthclubstage.backend.blabbermouthmanagerservice.endpoint;
 
-import de.youthclubstage.backend.blabbermouthmanagerservice.mapping.MessageMapper;
-import de.youthclubstage.backend.blabbermouthmanagerservice.repository.MessageRepository;
 import de.youthclubstage.blabbermouth.core.EventSender;
 import de.youthclubstage.blabbermouth.core.model.EventMessage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.xml.ws.Response;
 import java.util.UUID;
 
 @RestController
