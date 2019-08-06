@@ -1,0 +1,64 @@
+spring:
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: pidevnbg01:9094,pidevnbg03:9094,pidevnbg04:9094
+      bindings:
+        input:
+          destination: youthclubstage
+          contentType: application/json
+        output:
+          destination: youthclubstage
+          contentType: application/json
+  data:
+    mongodb:
+      host: localhost
+      #password: example
+      port: 27017
+      repositories:
+        enabled: true
+      #username: root
+      database: test
+  profiles: default
+cors:
+  allowedOrigins: '*'
+  allowedHeaders:
+    - Authorization
+    - Content-Type
+  exposedHeaders:
+    - Authorization
+    - Content-Type
+---
+
+spring:
+  profiles: docker
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: pidevnbg01:9094,pidevnbg03:9094,pidevnbg04:9094
+      bindings:
+        input:
+          destination: youthclubstage
+          contentType: application/json
+        output:
+          destination: youthclubstage
+          contentType: application/json
+  data:
+    mongodb:
+      host: blmmongodb
+      #password: example
+      port: 27017
+      repositories:
+        enabled: true
+      #username: root
+      database: blm
+cors:
+  allowedOrigins: '*'
+  allowedHeaders:
+    - Authorization
+    - Content-Type
+  exposedHeaders:
+    - Authorization
+    - Content-Type
