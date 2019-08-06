@@ -83,7 +83,7 @@ stages{
          }
          steps{
          script{
-           //sh "docker stack rm $projektname-$mybuildverison"
+           sh "docker stack rm $projektname-$mybuildverison"
          }
          }
        }
