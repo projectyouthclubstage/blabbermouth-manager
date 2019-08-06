@@ -1,4 +1,5 @@
 spring:
+  profiles: default
   cloud:
     stream:
       kafka:
@@ -20,7 +21,6 @@ spring:
         enabled: true
       #username: root
       database: test
-  profiles: default
 management:
   endpoint:
     health:
