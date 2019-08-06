@@ -21,6 +21,10 @@ spring:
       #username: root
       database: test
   profiles: default
+management:
+  endpoint:
+    health:
+      show-details: always
 cors:
   allowedOrigins: '*'
   allowedHeaders:
