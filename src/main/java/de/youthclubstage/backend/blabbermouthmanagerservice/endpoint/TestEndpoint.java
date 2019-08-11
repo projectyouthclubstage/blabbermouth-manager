@@ -22,17 +22,16 @@ public class TestEndpoint {
 
     @RequestMapping(value = "/go", method = RequestMethod.GET)
     public ResponseEntity<Void> sendTest(){
-        try {
-            Thread.sleep(10000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+
+        for (int x = 10000; x > 0; x--) {
+            EventMessage eventMessage = new EventMessage();
+            eventMessage.setId(UUID.randomUUID());
+            eventMessage.setProcess(x);
+            eventMessage.setState(x);
+            eventMessage.setVersion(1L);
+            eventSender.sendEvent(eventMessage);
         }
-        EventMessage eventMessage = new EventMessage();
-        eventMessage.setId(UUID.randomUUID());
-        eventMessage.setProcess(-1);
-        eventMessage.setState(-1);
-        eventMessage.setVersion(1L);
-        eventSender.sendEvent(eventMessage);
+
         return ResponseEntity.ok().build();
     }
 }
