@@ -19,7 +19,7 @@ import java.util.Calendar;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 @RestController
-@RequestMapping(value = "/v1/events", produces = "application/json", consumes = "application/json")
+@RequestMapping(value = "/v1/events", produces = "application/json")
 public class EventsEndpoint {
 
     private final EventService eventService;

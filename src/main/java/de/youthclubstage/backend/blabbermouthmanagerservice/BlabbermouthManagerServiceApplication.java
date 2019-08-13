@@ -1,5 +1,6 @@
 package de.youthclubstage.backend.blabbermouthmanagerservice;
 
+import de.youthclubstage.backend.blabbermouthmanagerservice.repository.MessageExtentedRepositoryImpl;
 import de.youthclubstage.backend.blabbermouthmanagerservice.service.EventWriter;
 import de.youthclubstage.blabbermouth.core.EnableBlabbermouth;
 import org.springframework.boot.SpringApplication;
@@ -9,7 +10,6 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 
 
 @SpringBootApplication
-@EnableMongoRepositories
 @EnableBlabbermouth
 public class BlabbermouthManagerServiceApplication {
 
