@@ -41,7 +41,7 @@ spring:
     stream:
       kafka:
         binder:
-          brokers: pidevnbg01:9094,pidevnbg03:9094,pidevnbg04:9094
+          brokers: pidevnbg01:9094,pidevnbg02:9094,pidevnbg03:9094,pidevnbg04:9094
       bindings:
         input:
           destination: youthclubstage
