@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Calendar;
+import java.util.Date;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
@@ -36,16 +37,17 @@ public class EventsEndpoint {
             @RequestParam(defaultValue = "calendar") String[] sort,
             @RequestParam(defaultValue = "ASC") String sortdirection,
             @RequestParam(required = false) Integer lastMinutes,
-            @RequestParam(required = false) @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") Calendar from,
-            @RequestParam(required = false) @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") Calendar to,
+            @RequestParam(required = false) @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") Date from,
+            @RequestParam(required = false) @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") Date to,
             Message message
     ){
-        Calendar start = from;
-        Calendar end = to;
+        Date start = from;
+        Date end = to;
         if(from == null && to == null && lastMinutes != null){
-            start = Calendar.getInstance();
-            start.add(Calendar.MINUTE, lastMinutes * -1);
-            end =  Calendar.getInstance();
+            Calendar curStart = Calendar.getInstance();
+            curStart.add(Calendar.MINUTE, lastMinutes * -1);
+            start = curStart.getTime();
+            end =  Calendar.getInstance().getTime();
         }
         Sort mysort = new Sort(sortdirection.equalsIgnoreCase("ASC") ? Sort.Direction.ASC : Sort.Direction.DESC,sort);
         Page<Message> result = eventService.getMessages(Example.of(message),start,end, PageRequest.of(page,pageSize,mysort));

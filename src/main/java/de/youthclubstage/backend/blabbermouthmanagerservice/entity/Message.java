@@ -26,5 +26,5 @@ public class Message {
     private UUID previousMessage;
     @Indexed
     @JsonFormat(shape= JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm:ss", timezone="CET")
-    private Calendar calendar;
+    private Date calendar;
 }

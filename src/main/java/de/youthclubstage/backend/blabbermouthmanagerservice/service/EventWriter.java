@@ -29,7 +29,7 @@ public class EventWriter {
     @EventhandlerMethod(process = -1, state = -1, eventTyp = EventType.ALL)
     public EventMessage allMessages(EventMessage message){
         Message currentMessage = messageMapper.toMessage(message);
-        currentMessage.setCalendar(Calendar.getInstance());
+        currentMessage.setCalendar(Calendar.getInstance().getTime());
         messageRepository.save(currentMessage);
         return null;
     }

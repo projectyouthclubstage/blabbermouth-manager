@@ -25,10 +25,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
-import java.util.Calendar;
-import java.util.Collections;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 @Service
 public class MessageExtentedRepositoryImpl implements MessageExtentedRepository {
@@ -46,7 +43,7 @@ public class MessageExtentedRepositoryImpl implements MessageExtentedRepository 
     }
 
     @Override
-    public Page<Message> findAllByCalendarBetween(Calendar start, Calendar end, Example<Message> example, Pageable pageable) {
+    public Page<Message> findAllByCalendarBetween(Date start, Date end, Example<Message> example, Pageable pageable) {
         Query q = (new Query((new Criteria()).alike(example).andOperator(new Criteria().and("calendar").gt(start).lt(end)))).with(pageable);
         List<Message> list = this.mongoTemplate.find(q, example.getProbeType());
         return PageableExecutionUtils.getPage(list, pageable, () -> {
