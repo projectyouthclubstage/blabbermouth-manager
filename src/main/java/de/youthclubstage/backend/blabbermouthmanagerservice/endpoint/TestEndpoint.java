@@ -23,7 +23,7 @@ public class TestEndpoint {
     @RequestMapping(value = "/go", method = RequestMethod.GET)
     public ResponseEntity<Void> sendTest(){
 
-        for (int x = 10000; x > 0; x--) {
+        for (int x = 80000; x > 0; x--) {
             EventMessage eventMessage = new EventMessage();
             eventMessage.setId(UUID.randomUUID());
             eventMessage.setProcess(x);
